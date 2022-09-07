@@ -1,9 +1,9 @@
 package stackds;
-public class Stack {
+public class IntStack {
     int[] stack;
     int top;
     int capacity;
-    public Stack(int size) {
+    public IntStack(int size) {
         stack = new int[size];
         capacity = size;
         top = -1;

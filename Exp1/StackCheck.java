@@ -1,11 +1,11 @@
 import java.util.Scanner;
-import stackds.*;
+import stackds.IntStack;
 public class StackCheck {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the size of the stack: ");
         int size = sc.nextInt();
-        Stack s = new Stack(size);
+        IntStack s = new IntStack(size);
         int flag,choice;
         while(true) {
             System.out.println("Select 1 Operation:\n1. Push\t\t2. Pop\n3. Peek\t\t4. Size");

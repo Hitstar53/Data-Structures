@@ -1,11 +1,11 @@
 import java.util.Scanner;
-import stackds.*;
+import stackds.IntStack;
 public class StackRev {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the size of the stack: ");
         int size = sc.nextInt();
-        Stack s = new Stack(size);
+        IntStack s = new IntStack(size);
         int e;
         System.out.printf("Enter %d elements to be pushed: ",size);
         for(int i=0;i<size;i++) {
