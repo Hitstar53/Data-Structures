@@ -3,7 +3,7 @@ import stackds.*;
 public class StackCheck {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the size of the stack: ");
+        System.out.print("Enter the size of the stack: ");
         int size = sc.nextInt();
         Stack s = new Stack(size);
         int flag,choice;

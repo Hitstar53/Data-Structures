@@ -12,7 +12,6 @@ public class Stack {
         if(isFull()) {
             System.out.println("Stack is full\nPush operation failed");
         } else {
-            System.out.println("Pushing element: "+e);
             stack[++top] = e;
         }
     }
@@ -20,7 +19,7 @@ public class Stack {
         if(isEmpty()) {
             System.out.println("Stack is empty\nPop operation failed");
         } else {
-            System.out.println("Popping element: "+stack[top--]);
+            top--;
         }
     }
     public int peek() {
