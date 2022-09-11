@@ -6,16 +6,24 @@ public class StackRev {
         System.out.print("Enter the size of the stack: ");
         int size = sc.nextInt();
         IntStack s = new IntStack(size);
-        int e;
+        int e,i;
         System.out.printf("Enter %d elements to be pushed: ",size);
-        for(int i=0;i<size;i++) {
-            e = sc.nextInt();
-            s.push(e);
+        try { 
+            for(i=0;i<size;i++) {
+                e = sc.nextInt();
+                s.push(e);
+            }
+        } catch(Exception ex) {
+                System.out.println(ex.getMessage());
         }
         System.out.println("Data in Reverse order: ");
-        for(int i=size-1;i>=0;i--) {
-            System.out.printf("%d ",s.peek());
-            s.pop();
+        try {
+            for(i=size-1;i>=0;i--) {
+                System.out.printf("%d ", s.Top());
+                s.pop();   
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
         }
         sc.close();
     }

@@ -1,41 +1,57 @@
 package stackds;
 public class CharStack {
-    int[] stack;
+    char[] stack;
     int top;
     int capacity;
+
     public CharStack(int size) {
-        stack = new int[size];
+        stack = new char[size];
         capacity = size;
         top = -1;
     }
-    public void push(int e) {
-        if (isFull()) {
-            System.out.println("Stack is full\nPush operation failed");
-        } else {
-            stack[++top] = e;
+
+    public void push(char e) throws Exception {
+        if (isFullStack()) {
+            throw new Exception("Stack is full!");
         }
+        stack[++top] = e;
     }
-    public void pop() {
-        if (isEmpty()) {
-            System.out.println("Stack is empty\nPop operation failed");
-        } else {
-            top--;
+
+    public char pop() throws Exception {
+        if (isEmptyStack()) {
+            throw new Exception("Stack is empty!");
         }
+        return stack[top--];
     }
-    public int peek() {
-        if (!isEmpty()) {
-            return stack[top];
-        } else {
-            System.out.println("Stack is empty\nPeek operation failed");
-            return -1;
+
+    public char Top() throws Exception {
+        if (isEmptyStack()) {
+            throw new Exception("Stack is empty!");
         }
+        return stack[top];
     }
-    public boolean isEmpty() {
+
+    public String printStack() {
+        String s = "[";
+        if (size() > 0) {
+            s += stack[0];
+        }
+        if (size() > 1) {
+            for (int i = 1; i < size(); i++) {
+                s += "," + stack[i];
+            }
+        }
+        return s += "]";
+    }
+
+    public boolean isEmptyStack() {
         return top == -1;
     }
-    public boolean isFull() {
+
+    public boolean isFullStack() {
         return top == capacity - 1;
     }
+
     public int size() {
         return top + 1;
     }
