@@ -36,13 +36,8 @@ public class IntQueue {
     }
     public String printQueue() {
         String s = "[";
-        if(size()>0) {
-            s += queue[0];
-        }
-        if(size()>1) {
-            for(int i=1;i<size();i++) {
-                s += "," + queue[i];
-            }
+        for(int i=front;i<rear+1;i++) {
+            s += queue[i]+(i!=rear?",":"");
         }
         return s += "]";
     }
@@ -53,6 +48,6 @@ public class IntQueue {
         return rear == capacity - 1;
     }
     public int size() {
-        return rear+1;
+        return rear+1-front;
     }
 }

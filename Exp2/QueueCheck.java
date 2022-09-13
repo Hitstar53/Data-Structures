@@ -1,11 +1,11 @@
 import java.util.Scanner;
-import queueds.IntQueue;
+import queueds.CQueue;
 public class QueueCheck {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the size of the queue: ");
         int n = sc.nextInt();
-        IntQueue queue = new IntQueue(n);
+        CQueue queue = new CQueue(n);
         int flag,choice;
         while(true) {
             System.out.println("Select an Operation:\n1. Enqueue\t2. Dequeue\n3. Front\t4. Rear\n5. Size");
@@ -43,7 +43,7 @@ public class QueueCheck {
                         System.out.println(ex.getMessage());
                     }
                     break;
-                case 6:
+                case 5:
                     System.out.println("Size: " + queue.size());
                     System.out.println("Queue: " + queue.printQueue());
                     break;
