@@ -42,7 +42,7 @@ public class IntQueue {
         return s += "]";
     }
     public boolean isEmptyQueue() {
-        return rear == -1;
+        return front>rear;
     }
     public boolean isFullQueue() {
         return rear == capacity - 1;

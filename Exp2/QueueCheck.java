@@ -1,11 +1,11 @@
 import java.util.Scanner;
-import queueds.CQueue;
+import queueds.IntQueue;
 public class QueueCheck {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the size of the queue: ");
         int n = sc.nextInt();
-        CQueue queue = new CQueue(n);
+        IntQueue queue = new IntQueue(n);
         int flag,choice;
         while(true) {
             System.out.println("Select an Operation:\n1. Enqueue\t2. Dequeue\n3. Front\t4. Rear\n5. Size");
