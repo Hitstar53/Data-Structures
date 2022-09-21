@@ -1,32 +1,29 @@
 package linkedlistds;
-class ListNode {
-    private int data;
-    private ListNode next;
-    public ListNode(int data) {
-        this.data = data;
-        next = null;
-    }
-    public int getData() {
-        return data;
-    }
-    public void setData(int data) {
-        this.data = data;
-    }
-    public ListNode getNext() {
-        return next;
-    }
-    public void setNext(ListNode next) {
-        this.next = next;
-    }
-}
 public class LinkedList {
-    public ListNode head;
-    private int length;
+    class ListNode {
+        private int data;
+        private ListNode next;
+        public ListNode(int data) {
+            this.data = data;
+            next = null;
+        }
+        public int getData() {
+            return data;
+        }
+        public void setData(int data) {
+            this.data = data;
+        }
+        public ListNode getNext() {
+            return next;
+        }
+        public void setNext(ListNode next) {
+            this.next = next;
+        }
+    }
+    ListNode head;
+    int length;
     public LinkedList() {
         head = null;
-    }
-    public ListNode getHead() {
-        return head;
     }
     public void clearList() {
         head = null;
@@ -107,20 +104,17 @@ public class LinkedList {
         length--;
         return data;
     }
-    public int size() {
-        return length;
-    }
     public boolean isEmpty() {
         return length == 0;
     }
     public String printList() {
-        String s = "[";
+        String s = "Head->";
         ListNode current = head;
         while(current != null) {
-            s += current.getData()+(current.getNext()!=null?",":"");
+            s += current.getData()+(current.getNext()!=null?"->":"");
             current = current.getNext();
         }
-        return s += "]";
+        return s;
     }
     public int getPosition(int data) {
         ListNode current = head;

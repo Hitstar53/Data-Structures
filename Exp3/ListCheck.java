@@ -3,53 +3,66 @@ import linkedlistds.LinkedList;
 public class ListCheck {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        //create linkedlist and test all functions
         LinkedList list = new LinkedList();
-        System.out.println("Enter the number of elements to be inserted at the front of the list");
-        int n = sc.nextInt();
-        for(int i=0;i<n;i++) {
-            System.out.println("Enter the element to be inserted");
-            int data = sc.nextInt();
-            list.insertAtFront(data);
+        int choice,flag,pos;
+        while(true) {
+            System.out.println(
+                    "Select an option:\n1.Insert at front\t2.Insert at pos\n3.Insert at end\n4.Delete at front\t5.Delete at pos\n6.Delete at end");
+            choice = sc.nextInt();
+            switch(choice) {
+                case 1:
+                    System.out.println("Enter the element to be inserted:");
+                    list.insertAtFront(sc.nextInt());
+                    System.out.println("The list is: " + list.printList());
+                    break;
+                case 2:
+                    System.out.println("Enter the element to be inserted:");
+                    int data = sc.nextInt();
+                    System.out.println("Enter the Element after which to insert:");
+                    pos = list.getPosition(sc.nextInt());
+                    if (pos == -1) {
+                        System.out.println("Element not found!");
+                    } else {
+                        pos = pos + 1;
+                        list.insertAtPosition(data, pos);
+                        System.out.println("The list is: " + list.printList());
+                    }
+                    break;
+                case 3:
+                    System.out.println("Enter the element to be inserted:");
+                    list.insertAtEnd(sc.nextInt());
+                    System.out.println("The list is: " + list.printList());
+                    break;
+                case 4:
+                    System.out.println("Deleted element: "+list.deleteAtFront());
+                    System.out.println("The list is: " + list.printList());
+                    break;
+                case 5:
+                    System.out.println("Enter the Element to be deleted:");
+                    pos = list.getPosition(sc.nextInt());
+                    if(pos == -1) {
+                        System.out.println("Element not found!");
+                    } else {
+                        System.out.println("Deleted element: "+list.deleteAtPosition(pos+1));
+                        System.out.println("The list is: " + list.printList());
+                    }
+                    break;
+                case 6:
+                    System.out.println("Deleted element: "+list.deleteAtEnd());
+                    System.out.println("The list is: " + list.printList());
+                    break;
+                case 7:
+                    System.out.println("The list is: "+list.printList());
+                    break;
+                default:
+                    System.out.println("Invalid choice");
+            }
+            System.out.println("Do you want to continue?\n1. Yes\t2. No");
+            flag = sc.nextInt();
+            if (flag == 2) {
+                break;
+            }
         }
-        System.out.println("Enter the number of elements to be inserted at the end of the list");
-        n = sc.nextInt();
-        for(int i=0;i<n;i++) {
-            System.out.println("Enter the element to be inserted");
-            int data = sc.nextInt();
-            list.insertAtEnd(data);
-        }
-        System.out.println("Enter the number of elements to be inserted at a position in the list");
-        n = sc.nextInt();
-        for(int i=0;i<n;i++) {
-            System.out.println("Enter the element to be inserted");
-            int data = sc.nextInt();
-            System.out.println("Enter the position at which the element is to be inserted");
-            int position = sc.nextInt();
-            list.insertAtPosition(data, position);
-        }
-        System.out.println("Enter the number of elements to be deleted from the front of the list");
-        n = sc.nextInt();
-        for(int i=0;i<n;i++) {
-            System.out.println("The element deleted is " + list.deleteAtFront());
-        }
-        System.out.println("Enter the number of elements to be deleted from the end of the list");
-        n = sc.nextInt();
-        for(int i=0;i<n;i++) {
-            System.out.println("The element deleted is " + list.deleteAtEnd());
-        }
-        System.out.println("Enter the number of elements to be deleted from a position in the list");
-        n = sc.nextInt();
-        for(int i=0;i<n;i++) {
-            System.out.println("Enter the position from which the element is to be deleted");
-            int position = sc.nextInt();
-            System.out.println("The element deleted is " + list.deleteAtPosition(position));
-        }
-        System.out.print("The list is: "+list.printList());
-        System.out.print("The length of the list is: " + list.size());
-        System.out.println("The list is cleared");
-        list.clearList();
-        System.out.print("The list is: "+list.printList());
         sc.close();
     }
 }
