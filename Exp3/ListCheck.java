@@ -55,7 +55,7 @@ public class ListCheck {
                     System.out.println("The list is: "+list.printList());
                     break;
                 default:
-                    System.out.println("Invalid choice");
+                    System.out.println("Invalid choice!");
             }
             System.out.println("Do you want to continue?\n1. Yes\t2. No");
             flag = sc.nextInt();
