@@ -23,8 +23,7 @@ public class ListCheck {
                     if (pos == -1) {
                         System.out.println("Element not found!");
                     } else {
-                        pos = pos + 1;
-                        list.insertAtPosition(data, pos);
+                        list.insertAtPosition(data, pos+1);
                         System.out.println("The list is: " + list.printList());
                     }
                     break;
@@ -43,7 +42,7 @@ public class ListCheck {
                     if(pos == -1) {
                         System.out.println("Element not found!");
                     } else {
-                        System.out.println("Deleted element: "+list.deleteAtPosition(pos+1));
+                        System.out.println("Deleted element: "+list.deleteAtPosition(pos));
                         System.out.println("The list is: " + list.printList());
                     }
                     break;

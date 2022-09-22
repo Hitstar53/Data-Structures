@@ -1,23 +1,11 @@
 package linkedlistds;
 public class LinkedList {
     class ListNode {
-        private int data;
-        private ListNode next;
+        int data;
+        ListNode next;
         public ListNode(int data) {
             this.data = data;
             next = null;
-        }
-        public int getData() {
-            return data;
-        }
-        public void setData(int data) {
-            this.data = data;
-        }
-        public ListNode getNext() {
-            return next;
-        }
-        public void setNext(ListNode next) {
-            this.next = next;
         }
     }
     ListNode head;
@@ -31,78 +19,79 @@ public class LinkedList {
     }
     public void insertAtFront(int data) {
         ListNode newNode = new ListNode(data);
-        newNode.setNext(head);
+        newNode.next = head;
         head = newNode;
         length++;
     }
     public void insertAtEnd(int data) {
         ListNode newNode = new ListNode(data);
         ListNode current = head;
-        while(current.getNext() != null) {
-            current = current.getNext();
-        }
-        current.setNext(newNode);
-        length++;
-    }
-    public void insertAtPosition(int data, int position) {
-        if(position < 0) {
-            position = 0;
-        }
-        if(position > length) {
-            position = length;
-        }
         if(head == null) {
-            head = new ListNode(data);
-        } else if(position == 0) {
-            ListNode newNode = new ListNode(data);
-            newNode.setNext(head);
             head = newNode;
         } else {
-            ListNode current = head;
-            for(int i=1;i<position;i++) {
-                current = current.getNext();
+            while(current.next != null) {
+                current = current.next;
             }
-            ListNode newNode = new ListNode(data);
-            newNode.setNext(current.getNext());
-            current.setNext(newNode);
+            current.next = newNode;
+        }
+    }
+    public void insertAtPosition(int data, int pos) {
+        ListNode newNode = new ListNode(data);
+        ListNode current = head;
+        if(pos == 1) {
+            newNode.next = head;
+            head = newNode;
+        } else {
+            for(int i=1;i<pos-1;i++) {
+                current = current.next;
+            }
+            newNode.next = current.next;
+            current.next = newNode;
         }
         length++;
     }
     public int deleteAtFront() {
-        int data = head.getData();
-        head = head.getNext();
-        length--;
-        return data;
+        if(head == null) {
+            System.out.println("List is empty");
+            return -1;
+        } else {
+            int data = head.data;
+            head = head.next;
+            length--;
+            return data;
+        }
     }
     public int deleteAtEnd() {
-        ListNode current = head;
-        ListNode previous = null;
-        while(current.getNext() != null) {
-            previous = current;
-            current = current.getNext();
+        if(head == null) {
+            System.out.println("List is empty");
+            return -1;
+        } else {
+            ListNode current = head;
+            while(current.next.next != null) {
+                current = current.next;
+            }
+            int data = current.next.data;
+            current.next = null;
+            length--;
+            return data;
         }
-        int data = current.getData();
-        previous.setNext(null);
-        length--;
-        return data;
     }
-    public int deleteAtPosition(int position) {
-        if(position < 0) {
-            position = 0;
-        }
-        if(position > length) {
-            position = length;
-        }
+    public int deleteAtPosition(int pos) {
         ListNode current = head;
-        ListNode previous = null;
-        for(int i=1;i<position;i++) {
-            previous = current;
-            current = current.getNext();
+        if(pos==1) {
+            int data = head.data;
+            head = head.next;
+            length--;
+            return data;
+        } else {
+            for(int i=1; i<pos-1; i++) {
+                current = current.next;
+            }
+            int data = current.next.data;
+            current.next = current.next.next;
+            length--;
+            return data;
         }
-        int data = current.getData();
-        previous.setNext(current.getNext());
-        length--;
-        return data;
     }
     public boolean isEmpty() {
         return length == 0;
@@ -111,19 +100,19 @@ public class LinkedList {
         String s = "Head->";
         ListNode current = head;
         while(current != null) {
-            s += current.getData()+(current.getNext()!=null?"->":"");
-            current = current.getNext();
+            s += current.data+(current.next!=null?"->":"");
+            current = current.next;
         }
         return s;
     }
     public int getPosition(int data) {
         ListNode current = head;
-        int position = 0;
+        int position = 1;
         while(current != null) {
-            if(current.getData() == data) {
+            if(current.data == data) {
                 return position;
             }
-            current = current.getNext();
+            current = current.next;
             position++;
         }
         return -1;
