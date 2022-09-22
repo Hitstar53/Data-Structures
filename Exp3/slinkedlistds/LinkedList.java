@@ -1,4 +1,4 @@
-package linkedlistds;
+package slinkedlistds;
 public class LinkedList {
     class ListNode {
         int data;
