@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 import slinkedlistds.LinkedList;
 public class ListCheck {
     public static void main(String[] args) {
