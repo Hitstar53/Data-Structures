@@ -33,7 +33,11 @@ class Polynomial {
         String s = "";
         Node current = head;
         while (current != null) {
-            s += current.coeff+"x^"+current.exp+(current.next!=null?"+":"");
+            if(current.exp==0) {
+                s+=current.coeff;
+            } else {
+                s += current.coeff+"x^"+current.exp+(current.next!=null?"+":"");
+            }
             current = current.next;
         }
         return s;
