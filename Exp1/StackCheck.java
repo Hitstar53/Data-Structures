@@ -1,19 +1,19 @@
 import java.util.Scanner;
-import stackds.CharStack;
+import stackds.LLStack;
 public class StackCheck {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the size of the stack: ");
-        int size = sc.nextInt();
-        CharStack s = new CharStack(size);
+        //System.out.print("Enter the size of the stack: ");
+        //int size = sc.nextInt();
+        LLStack s = new LLStack();
         int flag,choice;
         while(true) {
             System.out.println("Select 1 Operation:\n1. Push\t\t2. Pop\n3. Peek\t\t4. Size");
             choice = sc.nextInt();
             switch(choice) {
                 case 1:
-                    System.out.println("Enter the element to be pushed: ");
-                    char e = sc.next().charAt(0);
+                    System.out.print("Enter the element to be pushed: ");
+                    int e = sc.nextInt();
                     try {
                         s.push(e);
                     } catch(Exception ex) {
@@ -37,7 +37,7 @@ public class StackCheck {
                     }
                     break;
                 case 4:
-                    System.out.println("The size of the stack is: "+s.size());
+                    System.out.println("The size of the stack is: "+s.size);
                     break;
                 default:
                     System.out.println("Invalid choice");
