@@ -1,5 +1,5 @@
 import java.util.Scanner;
-class Polynomial {
+class Polynom {
     class Node {
         int coeff;
         int exp;
@@ -42,9 +42,9 @@ class Polynomial {
 public class PolyMul {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Polynomial p1 = new Polynomial();
-        Polynomial p2 = new Polynomial();
-        Polynomial p3 = new Polynomial();
+        Polynom p1 = new Polynom();
+        Polynom p2 = new Polynom();
+        Polynom p3 = new Polynom();
         int n,m,coeff,exp;
         System.out.print("Enter the no. of terms in 1st polynomial: ");
         n = sc.nextInt();
@@ -64,8 +64,8 @@ public class PolyMul {
         }
         System.out.println("1st polynomial: "+p1.printList());
         System.out.println("2nd polynomial: "+p2.printList());
-        Polynomial.Node current1 = p1.head;
-        Polynomial.Node current2 = p2.head;
+        Polynom.Node current1 = p1.head;
+        Polynom.Node current2 = p2.head;
         while (current1 != null) {
             while (current2 != null) {
                 p3.insertAtEnd(current1.coeff*current2.coeff, current1.exp+current2.exp);
