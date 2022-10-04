@@ -25,6 +25,7 @@ public class BTCheck {
         System.out.print("InOrder: ");
         bt.InOrder(bt.root);
         System.out.println();
-        System.out.println("Size of the tree is " + bt.size(bt.root));        
+        System.out.println("Size of the tree is " + bt.size(bt.root));
+        sc.close();
     }
 }
