@@ -12,7 +12,7 @@ public class BinTree {
     public void insert(int data) {
         root = inserter(root, data);
     }
-    private node inserter(Node root, int data) {
+    private Node inserter(Node root, int data) {
         if (root == null) {
             root = new Node(data);
             return root;
