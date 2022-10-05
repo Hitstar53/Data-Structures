@@ -81,4 +81,64 @@ public class BinTree {
             System.out.print(root.data + " ");
         }
     }
+    public void buildPreIn(int pre[],int in[],int n) {
+        root = build1(pre,0,n-1,in,0,n-1);
+    }
+    private Node build1(int pre[],int preStart,int preEnd,int in[],int inStart,int inEnd) {
+        if(preStart>preEnd || inStart>inEnd) {
+            return null;
+        }
+        int rootData = pre[preStart];
+        Node temp = new Node(rootData);
+        int i;
+        for (i=inStart;i<inEnd;i++) {
+            if (in[i] == rootData) {
+                break;
+            }
+        }
+        temp.left = build1(pre,preStart+1,preStart+i-inStart,in,inStart,i-1);
+        temp.right = build1(pre,preStart+i-inStart+1,preEnd,in,i+1,inEnd);
+        return temp;
+    }
+    public void buildPostIn(int post[], int in[], int n) {
+        root = build2(post,0,n-1,in,0,n-1);
+    }
+    private Node build2(int post[],int postStart,int postEnd,int in[],int inStart,int inEnd) {
+        if(postStart>postEnd || inStart>inEnd) {
+            return null;
+        }
+        int val = post[postEnd];
+        Node temp = new Node(val);
+        int i;
+        for(i=inStart;i<inEnd;i++) {
+            if(in[i]==val) {
+                break;
+            }
+        }
+        temp.left = build2(post,postStart,postStart+i-inStart-1,in,inStart,i-1);
+        temp.right = build2(post,postStart+i-inStart,postEnd-1,in,i+1,inEnd);
+        return temp;
+    }
+    public void buildPrePost(int pre[], int post[], int n) {
+        root = build3(pre,0,n-1,post,0,n-1);
+    }
+    private Node build3(int pre[],int preStart,int preEnd,int post[],int postStart,int postEnd) {
+        if(preStart>preEnd || postStart>postEnd) {
+            return null;
+        }
+        int val = pre[preStart-1];
+        Node temp = new Node(val);
+        if(preStart==preEnd) {
+            return temp;
+        }
+        int i;
+        for(i=postStart;i<postEnd;i++) {
+            if(post[i]==pre[preStart+1]) {
+                break;
+            }
+        }
+        temp.left = build3(pre,preStart+1,preStart+2+i-postStart,post,postStart,i);
+        temp.right = build3(pre,preStart+2+i-postStart,preEnd,post,i+1,postEnd-1);
+        return temp;
+    }
 }
