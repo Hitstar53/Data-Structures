@@ -1,4 +1,4 @@
-package bintreeds;
+package stackds;
 public class LLStack {
     class Node {
         int data;

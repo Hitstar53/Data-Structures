@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import bintreeds.ExpTree;
+import exptreeds.ExpTree;
 public class ETCheck {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
