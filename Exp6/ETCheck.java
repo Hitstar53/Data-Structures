@@ -19,5 +19,6 @@ public class ETCheck {
         et.postorder(et.root);
         System.out.println();
         System.out.println("value of expression is " + et.eval(et.root));
+        sc.close();
     }
 }
