@@ -117,4 +117,11 @@ public class LinkedList {
         }
         return -1;
     }
+    public int getData(int pos) {
+        ListNode current = head;
+        for(int i=1; i<pos; i++) {
+            current = current.next;
+        }
+        return current.data;
+    }
 }
