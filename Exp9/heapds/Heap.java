@@ -47,10 +47,10 @@ public class Heap {
     public void shiftDown(int i) {
         int maxIndex = i;
         int left = leftChild(i);
+        int right = rightChild(i);
         if(left!=-1 && heap[left]>heap[maxIndex]) {
             maxIndex = left;
         }
-        int right = rightChild(i);
         if(right!=-1 && heap[right]>heap[maxIndex]) {
             maxIndex = right;
         }
@@ -105,7 +105,7 @@ public class Heap {
     }
     public void printHeap() {
         for(int i=0;i<count;i++) {
-            System.out.print(heap[i]+">");
+            System.out.print(heap[i]+" ");
         }
         System.out.println();
     }
