@@ -42,9 +42,8 @@ public class Heap {
             i = parent(i);
         }
         heap[i] = temp;
-        printHeap();
     }
-    public void shiftDown(int i) {
+    public void heapify(int i) {
         int maxIndex = i;
         int left = leftChild(i);
         int right = rightChild(i);
@@ -58,7 +57,7 @@ public class Heap {
             int temp = heap[i];
             heap[i] = heap[maxIndex];
             heap[maxIndex] = temp;
-            shiftDown(maxIndex);
+            heapify(maxIndex);
         }
     }
     public int deleteMax() {
@@ -68,7 +67,7 @@ public class Heap {
         int data = heap[0];
         heap[0] = heap[count-1];
         count--;
-        shiftDown(0);
+        heapify(0);
         return data;
     }
     public void insert(int data) {
@@ -96,15 +95,23 @@ public class Heap {
         int old_size = count;
         for(int i=n-1;i>0;i--) {
             int temp = heap[0];
+            System.out.println("Swapping "+heap[0]+" and "+heap[i]);
             heap[0] = heap[i];
             heap[i] = temp;
             count--;
-            shiftDown(0);
+            heapify(0);
+            printHeap(n);
         }
         count = old_size;
     }
     public void printHeap() {
         for(int i=0;i<count;i++) {
+            System.out.print(heap[i]+" ");
+        }
+        System.out.println();
+    }
+    public void printHeap(int n) {
+        for(int i=0;i<n;i++) {
             System.out.print(heap[i]+" ");
         }
         System.out.println();
