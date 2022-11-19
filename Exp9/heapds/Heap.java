@@ -29,12 +29,6 @@ public class Heap {
         }
         return right;
     }
-    public int getMax() {
-        if(count==0) {
-            return -1;
-        }
-        return heap[0];
-    }
     public void shiftUp(int i) {
         int temp = heap[i];
         while(i>0 && temp>heap[parent(i)]) {
@@ -95,7 +89,7 @@ public class Heap {
         int old_size = count;
         for(int i=n-1;i>0;i--) {
             int temp = heap[0];
-            System.out.println("Swapping "+heap[0]+" and "+heap[i]);
+            System.out.println(heap[0]+" < - > "+heap[i]);
             heap[0] = heap[i];
             heap[i] = temp;
             count--;
@@ -112,7 +106,13 @@ public class Heap {
     }
     public void printHeap(int n) {
         for(int i=0;i<n;i++) {
-            System.out.print(heap[i]+" ");
+            if (i>=count) {
+                System.out.print("|"+heap[i]);
+            } else if (i==count-1) {
+                System.out.print(heap[i]);
+            } else {
+                System.out.print(heap[i]+" ");
+            }
         }
         System.out.println();
     }

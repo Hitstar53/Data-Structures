@@ -47,8 +47,8 @@ public class HeapCheck {
                 case 4:
                     heap.destroyHeap();
                     System.out.println("Heap Destroyed");
-                    heap.destroy();
-                    Heap heap = new Heap(capacity,1);
+                    heap = null;
+                    heap = new Heap(capacity,1);
                     break;
                 default:
                     System.out.println("Invalid choice!");
