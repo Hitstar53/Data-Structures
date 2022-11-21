@@ -1,11 +1,11 @@
 import java.util.Scanner;
-import hashds.OpenHash;
+import hashds.*;
 public class HashCheck {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter size of hash table: ");
         int size = sc.nextInt();
-        OpenHash hash = new OpenHash(size);
+        ChainHash hash = new ChainHash(size);
         hash.createHashTable();
         int choice,flag,key;
         while(true) {
