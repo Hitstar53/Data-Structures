@@ -1,21 +1,29 @@
 import java.util.Scanner;
-import hashds.*;
+import hashds.OQHash;
 public class HashCheck {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter size of hash table: ");
         int size = sc.nextInt();
-        ChainHash hash = new ChainHash(size);
+        System.out.print("Enter c1 and c2: ");
+        int c1 = sc.nextInt();
+        int c2 = sc.nextInt();
+        OQHash hash = new OQHash(size,c1,c2);
         hash.createHashTable();
         int choice,flag,key;
         while(true) {
-            System.out.println("Select an Option:\n1. Insert\t2. Delete\n3. Search\t\4. Display");
+            System.out.println("Select an Option:\n1. Insert\t2. Delete\t3. Search\t4. Display");
             choice = sc.nextInt();
             switch (choice) {
                 case 1:
-                    System.out.print("Enter key: ");
-                    key = sc.nextInt();
-                    hash.HashInsert(key);
+                    System.out.print("Enter no. of keys to insert: ");
+                    int n = sc.nextInt();
+                    for (int i=0;i<n;i++) {
+                        System.out.print("Enter key "+(i+1)+": ");
+                        key = sc.nextInt();
+                        hash.HashInsert(key);
+                    }
+                    System.out.println("\nFinal Hash Table: ");
                     hash.HashDisplay();
                     break;
                 case 2:

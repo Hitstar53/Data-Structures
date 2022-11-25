@@ -1,9 +1,9 @@
 package hashds;
-public class OpenHash1 {
+public class OQHash {
     private int[] hashtable;
     private int size;
     int c1,c2;
-    public OpenHash1(int size,int c1,int c2) {
+    public OQHash(int size,int c1,int c2) {
         this.size = size;
         hashtable = new int[size];
         this.c1 = c1;
@@ -45,15 +45,18 @@ public class OpenHash1 {
         }
     }
     public boolean HashSearch(int key) {
-        int index = key % size;
-        int i = 0;
-        while (hashtable[(index + i) % size] != key) {
-            if (hashtable[(index + i) % size] == -1) {
-                return false;
+        int index=key%size;
+        int i=0;
+        while(hashtable[index]!=-1) {
+            if(hashtable[index]==key) {
+                System.out.println("Key found at: "+index);
+                return true;
             }
+            index = (index+(c1*i)+(c2*i*i))%size;
             i++;
         }
-        return true;
+        System.out.println("Key not found!");
+        return false;
     }
     public void HashDelete(int key) {
         int index = key % size;
@@ -64,8 +67,13 @@ public class OpenHash1 {
         hashtable[(index + i) % size] = -1;
     }
     public void HashDisplay() {
+        System.out.println("Index\tkey");
         for (int i = 0; i < size; i++) {
-            System.out.print(hashtable[i] + " ");
+            if (hashtable[i]!=-1) {
+                System.out.println("["+i+"]\t"+hashtable[i]);
+            } else {
+                System.out.println("["+i+"]");
+            }
         }
         System.out.println();
     }
