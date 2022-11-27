@@ -10,5 +10,5 @@ List of Data-Structures:
 6. Expression Trees (ET)  
 7. AVL Trees (AVL)   
 8. Graph Traversal (DFS & BFS)  
-9. Heaps  
-10. 
+9. Binary Heap (Max heap & heapsort)
+10. Hash Tables (Chaining & Open addressing)
