@@ -18,8 +18,9 @@ public class OQHash {
         int i = 0;
         int count=0;
         int index = key%size;
+        int temp = index;
         while (hashtable[index]!=-1) {
-            index = (index+(c1*i)+(c2*i*i))%size;
+            index = (temp+(c1*i)+(c2*i*i))%size;
             if(hashtable[index]!=-1) {
                 System.out.println("Collision occured at: "+index);
                 i++;
