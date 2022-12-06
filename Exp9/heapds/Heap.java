@@ -2,9 +2,7 @@ package heapds;
 public class Heap {
     public int[] heap;
     int count,capacity;
-    int heap_type;
-    public Heap(int capacity,int heap_type) {
-        this.heap_type = heap_type;
+    public Heap(int capacity) {
         this.count = 0;
         this.capacity = capacity;
         this.heap = new int[capacity];

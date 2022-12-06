@@ -9,7 +9,6 @@ public class Prefix {
         char[] eq = exp.toCharArray();
         char[] prefix = new char[size];
         CharStack s = new CharStack(size);
-        //char[] pr = { '+', '-', '*', '/', '^' };
         int k=0;
         try {    
             for (int i=size-1;i>=0;i--) {

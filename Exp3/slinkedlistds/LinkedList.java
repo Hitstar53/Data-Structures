@@ -34,6 +34,7 @@ public class LinkedList {
             }
             current.next = newNode;
         }
+        length++;
     }
     public void insertAtPosition(int data, int pos) {
         ListNode newNode = new ListNode(data);

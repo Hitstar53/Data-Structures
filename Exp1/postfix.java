@@ -9,7 +9,6 @@ public class postfix {
         char[] eq = exp.toCharArray();
         char[] postfix = new char[size];
         CharStack s = new CharStack(size);
-        //char[] pr = { '+', '-', '*', '/', '^' };
         int k=0;
         try {    
             for (int i = 0; i < size; i++) {

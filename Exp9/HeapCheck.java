@@ -4,7 +4,7 @@ public class HeapCheck {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int capacity = 8;
-        Heap heap = new Heap(capacity,1);
+        Heap heap = new Heap(capacity);
         int choice,flag;
         while(true) {
             System.out.println("Select an option:\n1.Insert\n2.Build Heap\n3.Heap Sort\n4.Destroy Heap");
@@ -48,7 +48,7 @@ public class HeapCheck {
                     heap.destroyHeap();
                     System.out.println("Heap Destroyed");
                     heap = null;
-                    heap = new Heap(capacity,1);
+                    heap = new Heap(capacity);
                     break;
                 default:
                     System.out.println("Invalid choice!");
