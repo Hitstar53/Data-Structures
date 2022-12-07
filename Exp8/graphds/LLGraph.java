@@ -25,7 +25,7 @@ public class LLGraph {
         boolean[] visited = new boolean[adj.size()];
         int[] parent = new int[adj.size()];
         int[] level = new int[adj.size()];
-        Queue<Integer> q = new LinkedList<Integer>();
+        Queue<Integer> q = new java.util.LinkedList<Integer>();
         q.add(s);
         parent[s] = -1;
         visited[s] = true;

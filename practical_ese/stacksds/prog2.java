@@ -35,27 +35,27 @@ class LStack {
         return top == null;
     }
 }
-public class prog1 {
+public class prog2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter Infix: ");
         String exp = sc.nextLine();
         int size = exp.length();
         char[] eq = exp.toCharArray();
-        char[] postfix = new char[size];
+        char[] prefix = new char[size];
         LStack s = new LStack();
-        int k=0;
+        int k=size-1;
         try {
-            for(int i=0;i<size;i++) {
+            for (int i=size-1;i>=0;i--) {
                 if(eq[i]!='+' && eq[i]!='-' && eq[i]!='*' && eq[i]!='/' && eq[i]!='^' && eq[i]!='(' && eq[i]!=')') {
-                    postfix[k++] = eq[i];
-                }
-                else if(eq[i]=='(') {
-                    s.push(eq[i]);
+                    prefix[k--] = eq[i];
                 }
                 else if(eq[i]==')') {
-                    while(s.top()!='(') {
-                        postfix[k++] = s.pop();
+                    s.push(eq[i]);
+                }
+                else if(eq[i]=='(') {
+                    while(s.top()!=')') {
+                        prefix[k--] = s.pop();
                     }
                     s.pop();
                 }
@@ -63,43 +63,38 @@ public class prog1 {
                     if(s.isEmpty()) {
                         s.push(eq[i]);
                     }
-                    else if(eq[i]=='+' || eq[i]=='-') {
-                        if(s.top() == '+' || s.top() == '-' || s.top()=='*' || s.top()=='/' || s.top()=='^') {
-                            postfix[k++] = s.pop();
-                            s.push(eq[i]);
+                    else {
+                        if(eq[i]=='+' || eq[i]=='-') {
+                            if(s.top()=='*' || s.top()=='/' || s.top()=='^') {
+                                prefix[k--] = s.pop();
+                                s.push(eq[i]);
+                            }
+                            else {
+                                s.push(eq[i]);
+                            }
                         }
-                        else {
-                            s.push(eq[i]);
+                        else if(eq[i]=='*' || eq[i]=='/') {
+                            if(s.top()=='^') {
+                                prefix[k--] = s.pop();
+                                s.push(eq[i]);
+                            }
+                            else {
+                                s.push(eq[i]);
+                            }
                         }
-                    }
-                    else if(eq[i]=='*' || eq[i]=='/') {
-                        if(s.top()=='*' || s.top()=='/' || s.top()=='^') {
-                            postfix[k++] = s.pop();
-                            s.push(eq[i]);
-                        }
-                        else {
-                            s.push(eq[i]);
-                        }
-                    }
-                    else if(eq[i]=='^') {
-                        if(s.top()=='^') {
-                            postfix[k++] = s.pop();
-                            s.push(eq[i]);
-                        }
-                        else {
+                        else if(eq[i]=='^') {
                             s.push(eq[i]);
                         }
                     }
                 }
             }
             while(!s.isEmpty()) {
-                postfix[size-1] = s.pop();
-                size--;
+                prefix[k--] = s.pop();
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        System.out.println("Postfix: "+new String(postfix));
+        System.out.print("Prefix: "+new String(prefix));
         sc.close();
     }
 }
