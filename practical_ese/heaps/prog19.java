@@ -62,7 +62,7 @@ class MinHeap {
         }
     }
     public void heapSort(int n) {
-        int size = len;
+        int count = len;
         for(int i=n-1;i>0;i--) {
             int temp = heap[0];
             heap[0] = heap[i];
@@ -70,7 +70,7 @@ class MinHeap {
             len--;
             heapify(0);
         }
-        len = size;
+        len = count;
     }
     public void printHeap() {
         for (int i=0;i<len;i++) {
@@ -85,10 +85,9 @@ public class prog19 {
         System.out.print("Enter no. of elements: ");
         int n = sc.nextInt();
         MinHeap heap = new MinHeap(n);
-        int e;
         System.out.print("Enter elements: ");
         for(int i=0;i<n;i++) {
-            e = sc.nextInt();
+            int e = sc.nextInt();
             heap.insert(e);
         }
         System.out.print("Heap: ");

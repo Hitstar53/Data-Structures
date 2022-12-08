@@ -10,7 +10,7 @@ class LinkedList {
     }
     Node head=null;
     int len=0;
-    public void insert(int data) {
+    public void insertEnd(int data) {
         Node q = new Node(data);
         if(head==null) {
             head = q;
@@ -46,7 +46,7 @@ public class prog13 {
         System.out.print("Enter elements: ");
         for (int i=0;i<n;i++) {
             e = sc.nextInt();
-            l1.insert(e);
+            l1.insertEnd(e);
         }
         System.out.println("List: "+l1.printList());
         System.out.print("Enter x: ");
@@ -54,15 +54,15 @@ public class prog13 {
         LinkedList.Node t1 = l1.head;
         while(t1!=null) {
             if(t1.data<x) {
-                l2.insert(t1.data);
+                l2.insertEnd(t1.data);
             } else {
-                l3.insert(t1.data);
+                l3.insertEnd(t1.data);
             }
             t1 = t1.next;
         }
         LinkedList.Node t3 = l3.head;
         while(t3!=null) {
-            l2.insert(t3.data);
+            l2.insertEnd(t3.data);
             t3 = t3.next;
         }
         System.out.println("Sorted list: "+l2.printList());

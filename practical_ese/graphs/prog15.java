@@ -36,7 +36,7 @@ class MGraph {
         int[] dfs = new int[vertices];
         int[] start = new int[vertices];
         int[] end = new int[vertices];
-        int top = -1,time = 1,j=0;
+        int top=-1,time=1,j=0;
         stack[++top] = s;
         visited[s] = 1;
         start[s] = time;

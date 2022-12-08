@@ -93,8 +93,7 @@ public class prog1 {
                 }
             }
             while(!s.isEmpty()) {
-                postfix[size-1] = s.pop();
-                size--;
+                postfix[k++] = s.pop();
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());

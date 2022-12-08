@@ -10,7 +10,7 @@ class LinkedList {
     }
     Node head=null;
     int len;
-    public void insert(int data) {
+    public void insertEnd(int data) {
         Node q = new Node(data);
         if(head==null) {
             head = q;
@@ -61,7 +61,7 @@ public class prog12 {
         System.out.print("Enter elements: ");
         for(int i=0;i<n;i++) {
             e = sc.nextInt();
-            l.insert(e);
+            l.insertEnd(e);
         }
         System.out.println("List: "+l.printList());
         l.removeDup(n);

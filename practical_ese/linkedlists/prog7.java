@@ -104,10 +104,9 @@ public class prog7 {
         LinkedList l2 = new LinkedList();
         System.out.print("Enter no .of elements: ");
         int n = sc.nextInt();
-        int e;
         for(int i=0;i<n;i++) {
             System.out.print("Enter element "+(i+1)+": ");
-            e = sc.nextInt();
+            int e = sc.nextInt();
             l1.insertEnd(e);
             if((i>=n/2 && n%2==0) || (i>=(n/2+1) && n%2!=0)) {
                 l2.insertFront(e);

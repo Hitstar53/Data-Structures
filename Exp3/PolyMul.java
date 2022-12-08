@@ -11,18 +11,12 @@ class Polynom {
         }
     }
     Node head;
-    int getCoeff(Node node) {
-        return node.coeff;
-    }
-    int getExp(Node node) {
-        return node.exp;
-    }
     public void insertAtEnd(int coeff, int exp) {
         Node newNode = new Node(coeff, exp);
-        Node current = head;
         if (head == null) {
             head = newNode;
         } else {
+            Node current = head;
             while (current.next != null) {
                 current = current.next;
             }
@@ -33,7 +27,11 @@ class Polynom {
         String s = "";
         Node current = head;
         while (current != null) {
-            s += current.coeff+"x^"+current.exp+(current.next!=null?"+":"");
+            if(current.exp==0) {
+                s+=current.coeff;
+            } else {
+                s += current.coeff+"x^"+current.exp+(current.next!=null?"+":"");
+            }
             current = current.next;
         }
         return s;

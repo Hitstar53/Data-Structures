@@ -46,7 +46,7 @@ public class prog2 {
         LStack s = new LStack();
         int k=size-1;
         try {
-            for (int i=size-1;i>=0;i--) {
+            for(int i=size-1;i>=0;i--) {
                 if(eq[i]!='+' && eq[i]!='-' && eq[i]!='*' && eq[i]!='/' && eq[i]!='^' && eq[i]!='(' && eq[i]!=')') {
                     prefix[k--] = eq[i];
                 }
@@ -63,28 +63,26 @@ public class prog2 {
                     if(s.isEmpty()) {
                         s.push(eq[i]);
                     }
-                    else {
-                        if(eq[i]=='+' || eq[i]=='-') {
-                            if(s.top()=='*' || s.top()=='/' || s.top()=='^') {
-                                prefix[k--] = s.pop();
-                                s.push(eq[i]);
-                            }
-                            else {
-                                s.push(eq[i]);
-                            }
-                        }
-                        else if(eq[i]=='*' || eq[i]=='/') {
-                            if(s.top()=='^') {
-                                prefix[k--] = s.pop();
-                                s.push(eq[i]);
-                            }
-                            else {
-                                s.push(eq[i]);
-                            }
-                        }
-                        else if(eq[i]=='^') {
+                    else if(eq[i]=='+' || eq[i]=='-') {
+                        if(s.top()=='*' || s.top()=='/' || s.top()=='^') {
+                            prefix[k--] = s.pop();
                             s.push(eq[i]);
                         }
+                        else {
+                            s.push(eq[i]);
+                        }
+                    }
+                    else if(eq[i]=='*' || eq[i]=='/') {
+                        if(s.top()=='^') {
+                            prefix[k--] = s.pop();
+                            s.push(eq[i]);
+                        }
+                        else {
+                            s.push(eq[i]);
+                        }
+                    }
+                    else if(eq[i]=='^') {
+                        s.push(eq[i]);
                     }
                 }
             }
